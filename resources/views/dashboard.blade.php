@@ -150,7 +150,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{ asset('template/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">PEPURSTAKAAN</span>
     </a>
 
     <!-- Sidebar -->
@@ -281,7 +281,7 @@
       <div class="small-box bg-info">
       <div class="inner">
       <h3>150</h3>
-      <p>New Orders</p>
+      <p>Anggota</p>
       </div>
       <div class="icon">
       <i class="ion ion-bag"></i>
@@ -295,7 +295,7 @@
       <div class="small-box bg-success">
       <div class="inner">
       <h3>53<sup style="font-size: 20px">%</sup></h3>
-      <p>Bounce Rate</p>
+      <p>Data buku</p>
       </div>
       <div class="icon">
       <i class="ion ion-stats-bars"></i>
@@ -309,7 +309,7 @@
       <div class="small-box bg-warning">
       <div class="inner">
       <h3>44</h3>
-      <p>User Registrations</p>
+      <p>Pinjam</p>
       </div>
       <div class="icon">
       <i class="ion ion-person-add"></i>
@@ -323,7 +323,7 @@
       <div class="small-box bg-danger">
       <div class="inner">
       <h3>65</h3>
-      <p>Unique Visitors</p>
+      <p>di kembalikan</p>
       </div>
       <div class="icon">
       <i class="ion ion-pie-graph"></i>
