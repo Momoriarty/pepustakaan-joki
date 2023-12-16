@@ -71,6 +71,13 @@ return [
         // ],
     ],
 
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
