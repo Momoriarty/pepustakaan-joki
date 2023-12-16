@@ -15,6 +15,7 @@ class peminjaman extends Model
     protected $fillable = [
         'tgl_peminjam',
         'tgl_pengembalian',
+        'tgl_dikembalikan',
         'id_buku',
         'id_anggota',
         'id_petugas',

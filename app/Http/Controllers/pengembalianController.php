@@ -23,8 +23,23 @@ class pengembalianController extends Controller
     {
         // Menyimpan tugas baru ke database
         $pengembalian = new pengembalian;
-        $pengembalian->tgl_pengembalian = $request->input('tgl_pengembalian');
-        $pengembalian->denda = $request->input('denda');
+        $pengembalian->tgl_pengembalian = new \DateTime($request->input('tgl_pengembalian'));
+        $pengembalian->tgl_dikembalikan = new \DateTime($request->input('tgl_dikembalikan'));
+
+        if ($pengembalian->tgl_dikembalikan > $pengembalian->tgl_pengembalian) {
+            // Calculate the difference in days
+            $differenceInDays = $pengembalian->tgl_dikembalikan->diff($pengembalian->tgl_pengembalian)->days;
+
+            // Calculate the penalty per day
+            $penaltyPerDay = 5000;
+
+            // Set the penalty
+            $pengembalian->denda = $differenceInDays * $penaltyPerDay;
+        } else {
+            // If the return date is not later than the due date, set the penalty to 0
+            $pengembalian->denda = 0;
+        }
+
         $pengembalian->id_buku = $request->input('id_buku');
         $pengembalian->id_anggota = $request->input('id_anggota');
         $pengembalian->id_petugas = $request->input('id_petugas');

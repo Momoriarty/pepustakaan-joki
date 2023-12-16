@@ -47,6 +47,10 @@
                                                 <td>{{ $dt->id_petugas }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-warning mb-1" data-toggle="modal"
+                                                        data-target="#kembalimodal{{ $dt->peminjam }}">
+                                                        Kembalikan
+                                                    </button>
+                                                    <button type="button" class="btn btn-warning mb-1" data-toggle="modal"
                                                         data-target="#editModal{{ $dt->peminjam }}">
                                                         Edit
                                                     </button>
@@ -56,6 +60,69 @@
                                                     </button>
                                                 </td>
                                             </tr>
+
+                                            <!-- Modal Pengembalian -->
+                                            <div class="modal fade" id="kembalimodal{{ $dt->peminjam }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Edit Pengembalian
+                                                                Buku</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('pengembalian.store') }}" method="post"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <label for="editIdBuku">Id Buku</label>
+                                                                    <input type="text" name="id_buku"
+                                                                        class="form-control" id="editIdBuku" readonly
+                                                                        value="{{ $dt->id_buku }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="editIdAnggota">Id Anggota</label>
+                                                                    <input type="text" name="id_anggota"
+                                                                        class="form-control" id="editIdAnggota" readonly
+                                                                        value="{{ $dt->id_anggota }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="editIdPetugas">Id Petugas</label>
+                                                                    <input type="text" name="id_petugas"
+                                                                        class="form-control" id="editIdPetugas" readonly
+                                                                        value="{{ $dt->id_petugas }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="editTglPengembalian">Tanggal
+                                                                        Pengembalian</label>
+                                                                    <input type="date" name="tgl_pengembalian"
+                                                                        class="form-control" id="editTglPengembalian"
+                                                                        readonly value="{{ $dt->tgl_pengembalian }}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="">Tanggal
+                                                                        Di Kembalikan</label>
+                                                                    <input type="date" name="tgl_dikembalikan"
+                                                                        class="form-control" id="">
+                                                                </div>
+
+
+                                                                <!-- Add other fields as needed -->
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <!-- Modal Edit -->
                                             <div class="modal fade" id="editModal{{ $dt->peminjam }}" tabindex="-1"
@@ -138,7 +205,8 @@
                                                             <p>Are you sure you want to delete this template?</p>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <form action="{{ route('peminjaman.destroy', $dt->id_peminjam) }}"
+                                                            <form
+                                                                action="{{ route('peminjaman.destroy', $dt->id_peminjam) }}"
                                                                 method="post">
                                                                 @method('DELETE')
                                                                 @csrf
