@@ -118,6 +118,23 @@
                                 </p>
                             </a>
 
+
+                            <?php if (Auth::user()->level == 'admin') {
+                             ?>
+
+                        <li class="nav-item">
+                            <a href="/anggota" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Anggota</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/petugas" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Petugas</p>
+                            </a>
+                        </li>
+                        <?php } ?>
                         <li class="nav-item">
                             <a href="/buku" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
@@ -126,23 +143,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/anggota" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>anggota</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/petugas" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>petugas</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="/rak" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>rak</p>
+                                <p>Rak</p>
                             </a>
                         </li>
+
 
                         </li>
 
@@ -178,25 +184,21 @@
                                 <p>Pengembalian</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/auth/logout" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
 
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
         </aside>
-        <!-- /.sidebar-menu -->
-
-        <!-- /.sidebar -->
-
-        <!-- Content Wrapper. Contains page content -->
         @yield('content')
-        <!-- /.content-wrapper -->
 
 
-        <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
         </aside>
         <!-- /.control-sidebar -->
     </div>

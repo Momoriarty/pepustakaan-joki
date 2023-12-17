@@ -29,6 +29,7 @@
                                         <tr>
                                             <th style="width: 10px">No</th>
                                             <th>tanggal pengembalian</th>
+                                            <th>tanggal Dikembalikan</th>
                                             <th>denda</th>
                                             <th>id buku</th>
                                             <th>id anggota</th>
@@ -41,6 +42,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $dt->tgl_pengembalian }}</td>
+                                                <td>{{ $dt->tgl_dikembalikan }}</td>
                                                 <td>{{ $dt->denda }}</td>
                                                 <td>{{ $dt->id_buku }}</td>
                                                 <td>{{ $dt->id_anggota }}</td>
